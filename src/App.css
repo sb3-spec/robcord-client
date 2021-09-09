@@ -13,6 +13,10 @@
   #root {
     height: 100%;
   }
+
+  .str-chat .str-chat__textarea > textarea {
+    background-color: brown;
+  }
   
   .auth__form-container {
     min-height: 100vh;
@@ -471,7 +475,7 @@
   }
   
   .channel-search__input__icon {
-    width: 32px;
+    width: 50px;
     display: flex;
     justify-content: center;
   }
@@ -1408,6 +1412,7 @@
   
   .team-message-input__wrapper .str-chat__textarea textarea {
     display: flex;
+    color: #000;
     background: #fff;
     border: none;
     outline: none;
