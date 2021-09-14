@@ -19,7 +19,7 @@ const SideBar = ({ logout }) => (
 
 const CompanyHeader = () => (
     <div className="channel-list__header">
-        <p className="channel-list__header__text">RobCord</p>
+        <p className="channel-list__header__text">robcord</p>
     </div>
 );
 
@@ -115,7 +115,9 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
 
     return (
         <>
-            <div className="channel-list__container">
+            <div className="channel-list__container"
+            
+            >
                 <ChannelListContent 
                     setCreateType={setCreateType}
                     setIsCreating={setIsCreating}
@@ -123,7 +125,7 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
                 />
             </div>
             <div className="channel-list__container-responsive"
-                style={{ left: toggleContainer ? "0%" : "-86%", backgroundColor: "#005fff" }}
+                style={{ left: toggleContainer ? "0%" : "-86%", backgroundColor: "	#383838" }}
             >
                 <ChannelListContent 
                     setCreateType={setCreateType}

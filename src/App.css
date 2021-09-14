@@ -1,6 +1,9 @@
 :root {
-    --primary-color: #005fff;
+    --primary-color: green;
     --primary-color-alpha: #005fff1a;
+    --primary-color-beta: 	#383838;
+    --primary-color-dark: #181818;
+    --accent-grey: 	#909090;
   }
   
   html,
@@ -280,7 +283,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 120%;
-    color: #2c2c30;
+    color: #858688;
     margin-bottom: 10px;
   }
   
@@ -369,15 +372,13 @@
   
   .channel-list__container {
     display: flex;
-    /* height: 800px; */
     height: 100%;
     box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.1);
   }
   
   .channel-list__sidebar {
     width: 72px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      var(--primary-color);
+    background: var(--primary-color-beta);
     box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.25);
     /* border-top-left-radius: 16px; */
     /* border-bottom-left-radius: 16px; */
@@ -400,8 +401,9 @@
   .channel-list__list__wrapper {
     display: flex;
     flex-direction: column;
-    background: var(--primary-color);
+    background: var(--primary-color-beta);
     width: 240px;
+    opacity: .8s;
   }
   
   .icon1__inner {
@@ -591,6 +593,7 @@
     height: 62px;
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
     padding-right: 20px;
+    background-color: var(--primary-color-beta);
   }
   
   .create-channel__header p {
@@ -598,7 +601,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
-    color: #2c2c30;
+    color: #fff;
     margin-left: 20px;
   }
   
@@ -647,7 +650,7 @@
   
   .create-channel__button-wrapper {
     height: 82px;
-    background: #f7f6f8;
+    background: var(--accent-grey);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -671,6 +674,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color:var(--primary-color-beta)
   }
   
   .user-list__header {
@@ -684,7 +688,7 @@
     font-family: Helvetica Neue, sans-serif;
     font-size: 14px;
     line-height: 17px;
-    color: #858688;
+    color: #fff;
     margin-top: 16px;
   }
   
@@ -701,7 +705,7 @@
   .user-list__message {
     font-family: Helvetica Neue, sans-serif;
     font-size: 16px;
-    color: #2c2c30;
+    color: #fff;
     margin: 20px;
   }
   
@@ -728,7 +732,7 @@
     font-family: Helvetica Neue, sans-serif;
     font-size: 14px;
     line-height: 17px;
-    color: #2c2c30;
+    color: #fff;
     word-break: break-all;
   }
   
@@ -768,6 +772,7 @@
     height: 62px;
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
     padding-right: 20px;
+    background-color: var(--primary-color-beta);
   }
   
   .edit-channel__header p {
@@ -775,7 +780,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
-    color: #2c2c30;
+    color: var(--accent-grey);
     margin-left: 20px;
   }
   
@@ -789,13 +794,14 @@
     height: 169px;
     padding-left: 20px;
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color-beta);
   }
   
   .channel-name-input__wrapper p {
     font-family: Helvetica Neue, sans-serif;
     font-size: 16px;
     line-height: 120%;
-    color: #2c2c30;
+    color: var(--accent-grey);
     margin-top: 30px;
   }
   
@@ -805,7 +811,7 @@
     color: rgba(0, 0, 0);
     height: 50px;
     width: 90%;
-    background: #f7f6f8;
+    background: #B8B8B8;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     border-radius: 8px;
@@ -824,7 +830,7 @@
   
   .edit-channel__button-wrapper {
     height: 82px;
-    background: #f7f6f8;
+    background: var(--accent-grey);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -850,7 +856,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    background: #ffffff;
+    color: #ffffff;
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
     border-top-right-radius: 16px;
     z-index: 1;
@@ -869,7 +875,7 @@
     font-family: Helvetica Neue, sans-serif;
     font-weight: bold;
     font-size: 18px;
-    color: #2c2c30;
+    color: #fff;
     margin-right: 8px;
   }
   
@@ -1060,7 +1066,7 @@
     font-style: normal;
     font-weight: normal;
     line-height: 120%;
-    color: #000000;
+    color: #fff;
     margin: 0;
     background: none;
   }
