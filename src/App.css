@@ -12,9 +12,16 @@
     padding: 0;
     height: 100%;
   }
+  i {
+    font-family: "Font Awesome 5 Free" !important;
+  }
   
   #root {
     height: 100%;
+  }
+
+  .alert_container {
+    width: 85%;
   }
 
   .str-chat .str-chat__textarea > textarea {
@@ -195,6 +202,10 @@
       right: 3%;
     }
   }
+
+  .back-btn {
+    display: none;
+  }
   
   .app__wrapper {
     display: flex;
@@ -232,12 +243,17 @@
   }
   
   @media screen and (max-width: 960px) {
+    .back-btn {
+      display: flex;
+      padding-right: 10px;
+    }
+
     .str-chat-channel-list.team {
-      position: unset;
+      position: sticky !important;
       left: unset;
       top: unset;
       z-index: unset;
-      min-height: unset;
+      min-height: 40vh !important;
       overflow-y: unset;
       box-shadow: unset;
       transition: unset;
@@ -1052,7 +1068,7 @@
   }
   
   .str-chat__message-team:hover {
-    background: #e9e9ea;
+    background: var(--primary-color-alpha);
   }
   
   .str-chat__message-team-group {
