@@ -25,7 +25,7 @@
   }
 
   .str-chat .str-chat__textarea > textarea {
-    background-color: #add8e6;
+    background-color: #8364d6 !important;
   }
   
   .auth__form-container {
@@ -223,6 +223,7 @@
   
   .str-chat-channel {
     height: 100%;
+    background-color: #444343 !important;
   }
   
   .str-chat__load-more-button {
@@ -733,8 +734,9 @@
   }
   
   .user-item__wrapper:hover {
-    background: #f7f6f8;
+    background: rgb(158, 158, 219);
     cursor: pointer;
+    border-radius: 20px;
   }
   
   .user-item__name-wrapper {
@@ -1121,7 +1123,7 @@
     font-weight: 500;
     font-size: 11px;
     line-height: 120%;
-    color: #858688;
+    color: lavender;
     margin: 0;
     margin-right: 8px;
   }
