@@ -3,7 +3,7 @@ import { Channel, useChatContext, MessageTeam } from "stream-chat-react";
 
 import { ChannelInner, CreateChannel, EditChannel } from './';
 
-const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, createType, setCreateType }) => {
+const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, createType, setToggleContainer }) => {
     const { channel } = useChatContext();
 
     if (isCreating) {
@@ -35,7 +35,7 @@ const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, 
                 EmptyStateIndicator={EmptyState}
                 Message={(messageProps, i) => <MessageTeam key={i} {...messageProps} />}
             >
-                <ChannelInner setIsEditing={setIsEditing} />
+                <ChannelInner setIsEditing={setIsEditing} setToggleContainer={setToggleContainer} />
             </Channel>
         </div>
     )

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { MessageList, MessageInput, Thread, Window, useChannelActionContext, Avatar, useChannelStateContext, useChatContext } from 'stream-chat-react';
 
 import { ChannelInfo } from '../assets';
+import { BackButton } from '../assets/BackButton';
 
 export const GiphyContext = React.createContext({});
 
-const ChannelInner = ({ setIsEditing }) => {
+const ChannelInner = ({ setIsEditing, setToggleContainer }) => {
   const [giphyState, setGiphyState] = useState(false);
   const { sendMessage } = useChannelActionContext();
   
@@ -32,9 +33,9 @@ const ChannelInner = ({ setIsEditing }) => {
     <GiphyContext.Provider value={{ giphyState, setGiphyState }}>
       <div style={{ display: 'flex', width: '100%' }}>
         <Window>
-          <TeamChannelHeader setIsEditing={setIsEditing} />
+          <TeamChannelHeader setIsEditing={setIsEditing} setToggleContainer={setToggleContainer} />
           <MessageList />
-          <MessageInput overrideSubmitHandler={overrideSubmitHandler} />
+          <MessageInput overrideSubmitHandler={overrideSubmitHandler} style="background-color: #add8e6;" />
         </Window>
         <Thread />
       </div>
@@ -42,7 +43,7 @@ const ChannelInner = ({ setIsEditing }) => {
   );
 };
 
-const TeamChannelHeader = ({ setIsEditing }) => {
+const TeamChannelHeader = ({ setIsEditing, setToggleContainer }) => {
     const { channel, watcher_count } = useChannelStateContext();
     const { client } = useChatContext();
   
@@ -53,13 +54,16 @@ const TeamChannelHeader = ({ setIsEditing }) => {
       if(channel.type === 'messaging') {
         return (
           <div className='team-channel-header__name-wrapper'>
+            <div className="back-btn" onClick={() => setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
+              Menu
+            </div>
+            
             {members.map(({ user }, i) => (
               <div key={i} className='team-channel-header__name-multi'>
                 <Avatar image={user.image} name={user.fullName || user.id} size={32} />
                 <p className='team-channel-header__name user'>{user.fullName || user.id}</p>
               </div>
             ))}
-  
             {additionalMembers > 0 && <p className='team-channel-header__name user'>and {additionalMembers} more</p>}
           </div>
         );
@@ -67,8 +71,11 @@ const TeamChannelHeader = ({ setIsEditing }) => {
   
       return (
         <div className='team-channel-header__channel-wrapper'>
+          <div className="back-btn" onClick={() => setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
+            menu
+          </div>
           <p className='team-channel-header__name'># {channel.data.name}</p>
-          <span style={{ display: 'flex' }} onClick={() => setIsEditing(true)}>
+          <span style={{ display: 'flex' }} onClick={() => setIsEditing(true)} >
             <ChannelInfo />
           </span>
         </div>

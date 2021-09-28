@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StreamChat } from 'stream-chat';
-import { Chat } from "stream-chat-react";
+import { Chat, useChatContext } from "stream-chat-react";
 import Cookies from "universal-cookie";
 
 
@@ -17,21 +17,6 @@ const client = StreamChat.getInstance(apikey);
 
 const authToken = cookies.get("token");
 
-const checkIfInGeneral = async () => {
-
-    try {
-        const general = await client.getChannelById('team', 'general');
-
-        const isIn = await general.queryMembers({ "name" : cookies.get('username')});
-
-        if(isIn.members.length === 0) {
-            const adding = await general.addMembers([cookies.get('userId')]);
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
 
 if(authToken) {
     client.connectUser({    
@@ -42,14 +27,7 @@ if(authToken) {
         image: cookies.get('avatarURL'),
         hashedPassword: cookies.get('hashedPassword'),
     }, authToken);
-
-    checkIfInGeneral();
-}
-
-
-
-
-
+}   
 
 
 const App = () => {
@@ -58,7 +36,32 @@ const App = () => {
     const [isEditing, setIsEditing] = useState('');
     const [toggleContainer, setToggleContainer] = useState(false);
 
-    if(!authToken) return <Auth /> 
+
+    const addToGeneral = async () => {
+
+        try {
+            const general = await client.getChannelById('team', 'general');
+    
+            const isIn = await general.queryMembers({ "name" : cookies.get('username')});
+
+            console.log(" addToGeneral 1");
+    
+            if(isIn.members.length === 0) {
+                const adding = await general.addMembers([cookies.get('userId')]);
+                console.log("addToGeneral success");
+                
+            }
+
+        } catch (error) {
+            console.log(error);
+            // window.location.reload();
+        }
+    }
+
+    if(!authToken) return <Auth />
+
+    if(client.user) addToGeneral();
+
 
     return (
         <div className="app__wrapper">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
 
@@ -32,7 +32,7 @@ const customChannelMessageFilter = (channels) => {
 };
 
 const ChannelListContent = ({ isCreating, setIsCreating, isEditing, setIsEditing, setCreateType, setToggleContainer }) => {
-    const { client } = useChatContext();
+    const { client, setActiveChannel } = useChatContext();
 
     const logout = () => {
         cookies.remove('token');
@@ -46,6 +46,7 @@ const ChannelListContent = ({ isCreating, setIsCreating, isEditing, setIsEditing
     };
 
     const filters = { members: { $in: [client.userID] } }
+
 
     return (
         <>
@@ -110,8 +111,7 @@ const ChannelListContent = ({ isCreating, setIsCreating, isEditing, setIsEditing
     )
 }
 
-const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) => {
-    const [toggleContainer, setToggleContainer]  = useState(false);
+const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing, setToggleContainer, toggleContainer }) => {
 
     return (
         <>
@@ -125,7 +125,7 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
                 />
             </div>
             <div className="channel-list__container-responsive"
-                style={{ left: toggleContainer ? "0%" : "-86%", backgroundColor: "	#383838" }}
+                style={{ left: toggleContainer ? "0%" : "-89%", backgroundColor: "	#383838" }}
             >
                 <ChannelListContent 
                     setCreateType={setCreateType}
@@ -133,9 +133,6 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
                     setIsEditing={setIsEditing} 
                     setToggleContainer={setToggleContainer}              
                 />
-                <div className="channel-list__container-toggle" onClick={() => setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
-                    {toggleContainer ? <i class="fas fa-arrow-circle-left"></i> : <i class="fas fa-arrow-right"></i>}
-                </div>
             </div>
         </>
     );

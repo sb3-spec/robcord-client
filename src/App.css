@@ -25,7 +25,7 @@
   }
 
   .str-chat .str-chat__textarea > textarea {
-    background-color: #8364d6 !important;
+    background-color: #916ef1 !important;
   }
   
   .auth__form-container {
@@ -212,7 +212,7 @@
     flex: 1;
     /* height: 800px; */
     height: 100%;
-    /* border-radius: 16px; */
+    border-radius: 16px; 
     box-shadow: rgba(0, 0, 0, 0.33) 0px 1px 4px 0px;
   }
   
@@ -223,7 +223,7 @@
   
   .str-chat-channel {
     height: 100%;
-    background-color: #444343 !important;
+    background: linear-gradient(to top, #54abca, #B19CD9) !important;
   }
   
   .str-chat__load-more-button {
@@ -982,6 +982,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .team-channel-list__header p {
+    color: white !important;
   }
   
   .team-channel-list__header svg {
